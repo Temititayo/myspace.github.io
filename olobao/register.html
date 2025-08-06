@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Online Courses</h1>
+  </header>
+  <nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="register.html">Register</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+  <main class="container">
+  	<h2>Registration</h2>
+    <p>Please complete the form below to register for your desired course(s).</p>
+    <form action="https://formspree.io/f/your-form-id" method="POST" class="form">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required />
+      <label for="course">Select Course</label>
+      <select id="course" name="course" required>
+        <option value="">-- Please choose a course --</option>
+        <option value="Agent-based modeling">Agent-based modeling</option>
+        <option value="Computational Social Science Methods">Computational Social Science Methods</option>
+        <option value="NetLogo Programing">NetLogo Programing</option>
+		<option value="AI Agents in fragile and conflict situatons">AI Agents in fragile and conflict situatons</option>
+      </select>
+      <label for="message">Why are you interested? (Optional)</label>
+      <textarea id="message" name="message" rows="4"></textarea>
+      <button type="submit" class="btn">Submit Registration</button>
+    </form>
+  </main>
+</body>
+<footer>
+    <p>&copy; 2025 Olufemi Oloba, Afe Babalola University, Ado-Ekti, Nigeria | All Rights Reserved</p>
+</footer>
+</html>
