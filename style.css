@@ -88,3 +88,24 @@ button {
       border-radius: 5px;
       text-decoration: none;
     }
+
+
+
+rows {
+   display: flex;
+}
+
+column {
+    flex: 1;
+    padding: 10px;
+}
+
+column:first-child {
+    background-color: lightblue;
+}
+
+column:last-child {
+    background-color: lightgreen;
+}
+
+
