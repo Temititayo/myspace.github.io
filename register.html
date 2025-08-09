@@ -20,40 +20,61 @@
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
-  <main class="container">
-  	<h2>Registration form</h2>
-    <p>Please complete this form to register for your desired course.</p>
-    <!--<form action="submit.php" method="POST" enctype="multipart/form-data">  <!--"mailto: olobao@abuad.edu.ng" enctype="multipart/form-data">  <!--"https://formspree.io/f/your-form-id" method="POST" class="form"> -->
-    <!--<form action="http://formspree.io/olobao@abuad.edu.ng" method="POST" enctype="multipart/form-data"> -->
-	<form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSc-t5IsnJ3iOPidnLak7T1jeYwSmDR6MujCMH-NSHv119H-gw/formResponse?usp=pp_url" target="hidden_iframe" onsubmit="submitted=true;">
-	<label for="name">Full Name</label>
-      <input type="text" id="entry.1785535824" name="entry.1785535824" required />
-      <label for="email">Email Address</label>
-      <input type="email" id="entry.2141559156" name="entry.2141559156" required />
-      <label for="course">Select Course</label>
-      <select id="entry.260731188" name="entry.260731188" required>
-        <option value="">-- Please choose a course --</option>
-        <option value="Agent-based modeling">Agent-based modeling</option>
-        <option value="Computational Social Science Methods">Computational Social Science Methods</option>
-        <option value="NetLogo Programing">NetLogo Programing</option>
-		<option value="AI Agents in fragile and conflict situatons">AI Agents in fragile and conflict situatons</option>
-      </select>
-      <label for="message">Why are you interested? (Optional)</label>
-      <textarea id="entry.1835076488" name="entry.1835076488" rows="4"></textarea>
-      <button type="submit" class="btn">Submit Registration</button>
-    </form>
-	
-	<!--<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>-->
-	<script src="assets/js/jquery.min.js"></script>
-	<script type="text/javascript">var submitted=false;</script>
-	<script type="text/javascript">
-	$('#gform').on('submit', function(e) {
-		$('#gform *').fadeOut(2000);
-		$('#gform').prepend('Your submission has been processed...');
-	});
-	</script>
-	
-  </main>
+<main class="container">
+  <h2>Registration Form</h2>
+  <p>Please complete this form to register for your desired course.</p>
+
+  <form id="gform">
+    <label for="name">Full Name</label>
+    <input type="text" id="entry.1785535824" name="entry.1785535824" required />
+
+    <label for="email">Email Address</label>
+    <input type="email" id="entry.2141559156" name="entry.2141559156" required />
+
+    <label for="course">Select Course</label>
+    <select id="entry.260731188" name="entry.260731188" required>
+      <option value="">-- Please choose a course --</option>
+      <option value="Agent-based modeling">Agent-based modeling</option>
+      <option value="Computational Social Science Methods">Computational Social Science Methods</option>
+      <option value="NetLogo Programing">NetLogo Programing</option>
+      <option value="Artificial Intelligence">Artificial Intelligence</option>
+	  <option value="Network Dynamics">Network Dynamics</option>
+	  <option value="Conflict Dynamics">Conflict Analysis</option>
+	  <option value="Introduction to Mediation Skills">Artificial Intelligence</option>
+	  <option value="AI Agents in fragile and conflict situatons">AI Agents in fragile and conflict situatons</option>
+    </select>
+
+    <label for="message">Why are you interested? (Optional)</label>
+    <textarea id="entry.1835076488" name="entry.1835076488" rows="4"></textarea>
+
+    <button type="submit" class="btn">Submit Registration</button>
+  </form>
+
+  <p id="confirmation" style="display:none; color:green;">✅ Thank you! Your registration has been submitted.</p>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('gform');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault(); // Stop default submission
+
+        const formData = new FormData(form);
+
+        fetch('https://docs.google.com/forms/d/e/1FAIpQLSc-t5IsnJ3iOPidnLak7T1jeYwSmDR6MujCMH-NSHv119H-gw/formResponse', {
+          method: 'POST',
+          mode: 'no-cors',
+          body: formData
+        }).then(() => {
+          document.getElementById('confirmation').style.display = 'block';
+          form.reset();
+        });
+      });
+    });
+  </script>
+</main>
+
+
 </body>
 <footer>
     <p>&copy; 2025 Olufemi Oloba, Afe Babalola University, Ado-Ekiti, Nigeria | All Rights Reserved</p>
