@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Online Courses</h1>
+  </header>
+  <nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="register.html">Register</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+<main class="container">
+  <h2>Registration</h2>
+  <p>Please complete this form to register for your desired course.</p>
+
+  <form id="gform">
+    <label for="name">Full Name</label>
+    <input type="text" id="entry.1785535824" name="entry.1785535824" required />
+
+    <label for="email">Email Address</label>
+    <input type="email" id="entry.2141559156" name="entry.2141559156" required />
+
+    <label for="course">Select Course</label>
+    <select id="entry.260731188" name="entry.260731188" required>
+      <option value="">-- Please choose a course --</option>
+      <option value="Agent-based modeling">Agent-based modeling</option>
+      <option value="Computational Social Science Methods">Computational Social Science Methods</option>
+      <option value="NetLogo Programing">NetLogo Programing</option>
+      <option value="AI Agents in fragile and conflict situatons">AI Agents in fragile and conflict situatons</option>
+    </select>
+
+    <label for="message">Why are you interested? (Optional)</label>
+    <textarea id="entry.1835076488" name="entry.1835076488" rows="4"></textarea>
+
+    <button type="submit" class="btn">Submit Registration</button>
+  </form>
+
+  <p id="confirmation" style="display:none; color:green;">✅ Thank you! Your registration has been submitted.</p>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('gform');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault(); // Stop default submission
+
+        const formData = new FormData(form);
+
+        fetch('https://docs.google.com/forms/d/e/1FAIpQLSc-t5IsnJ3iOPidnLak7T1jeYwSmDR6MujCMH-NSHv119H-gw/formResponse', {
+          method: 'POST',
+          mode: 'no-cors',
+          body: formData
+        }).then(() => {
+          document.getElementById('confirmation').style.display = 'block';
+          form.reset();
+        });
+      });
+    });
+  </script>
+</main>
+
+
+</body>
+<footer>
+    <p>&copy; 2025 Olufemi Oloba, Afe Babalola University, Ado-Ekiti, Nigeria | All Rights Reserved</p>
+</footer>
+</html>
+
+

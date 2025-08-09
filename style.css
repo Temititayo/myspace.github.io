@@ -1,6 +1,6 @@
 body {
   font-family: Georgia, serif;
-  line-height: 1.6;
+  line-height: 1.5;
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
@@ -72,8 +72,8 @@ footer {
       text-align: center;
       background: #003366;
       color: white;
-      padding: -1rem;
-      margin-top: 3rem;
+      padding: 0rem;
+      margin-top: 20rem;
     }
 
 button.btn:hover {
@@ -89,23 +89,16 @@ button {
       text-decoration: none;
     }
 
-
+.ccontainer {
+       display: flex;
+       flex-direction: row;
+     }
 
 rows {
    display: flex;
 }
 
-column {
-    flex: 1;
-    padding: 10px;
+.column {
+    flex: 10%;
+	height: 0px;
 }
-
-column:first-child {
-    background-color: lightblue;
-}
-
-column:last-child {
-    background-color: lightgreen;
-}
-
-
